@@ -13,8 +13,10 @@
     :root{
       --bg:#0f0e0d; --bg2:#151311;
       --text:#eee9e4; --muted:#b3aca4;
-      --accent:#f59e0b; --accent-ink:#111010;
+      --accent:#5fd0c8;           /* teal accent (prototype vibe) */
+      --accent-ink:#0c1110;
       --border:#ffffff1a;
+      --panel:#0f1312;             /* hero panel surface */
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -22,15 +24,13 @@
       margin:0; font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(900px 600px at 85% -10%, #221a12 0%, transparent 60%),
-        radial-gradient(800px 600px at -10% 20%, #1a140f 0%, transparent 55%),
-        linear-gradient(#0f0e0d,#141311);
+        radial-gradient(1100px 700px at 50% -20%, #1a1f1e 0%, transparent 60%),
+        linear-gradient(#0e100f,#141615);
       line-height:1.65;
     }
-    /* subtle accent glow */
-    body::after{
+    body::after{ /* soft accent glow */
       content:""; position:fixed; inset:0; pointer-events:none;
-      background: radial-gradient(600px 320px at 70% 0%, #f59e0b22, transparent 60%);
+      background: radial-gradient(700px 360px at 65% 0%, #5fd0c825, transparent 60%);
       mix-blend-mode:screen;
     }
 
@@ -38,8 +38,8 @@
     .nav{
       display:flex; align-items:center; justify-content:space-between;
       gap:8px; flex-wrap:wrap;
-      padding:12px 0; position:sticky; top:0; z-index:10;
-      background:rgba(15,14,13,.7); backdrop-filter:blur(6px);
+      padding:12px 0; position:sticky; top:0; z-index:20;
+      background:rgba(14,16,15,.7); backdrop-filter:blur(6px);
       border-bottom:1px solid var(--border);
     }
     .brand{
@@ -54,43 +54,63 @@
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
       background:var(--accent); color:var(--accent-ink);
-      padding:12px 16px; border-radius:12px; text-decoration:none; font-weight:700;
-      min-height:44px; width:100%;
-      border:1px solid #000; box-shadow:0 10px 24px #f59e0b2e;
+      padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:700;
+      min-height:44px; border:0; box-shadow:0 10px 24px #5fd0c835;
       transition:transform .15s, box-shadow .2s;
     }
-    .btn:hover{transform:translateY(-1px); box-shadow:0 14px 32px #f59e0b35}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 14px 32px #5fd0c83f}
     .btn-outline{
-      background:transparent; color:var(--text); border:1px solid var(--border); box-shadow:none;
+      background:transparent; color:var(--text); border:1px solid var(--border);
+      box-shadow:none;
     }
     .btn-outline:hover{border-color:#ffffff33}
 
     .section{padding:48px 0; border-bottom:1px solid var(--border)}
-    h1{font-size:clamp(28px, 6vw, 46px); line-height:1.2; margin:0 0 12px}
+    h1{font-size:clamp(30px, 6.2vw, 48px); line-height:1.15; margin:0 0 12px}
     h2{margin:0 0 16px; font-size:clamp(20px, 3.5vw, 28px)}
     h3{margin:0 0 8px}
     .lead{color:var(--muted); max-width:740px}
 
-    /* hero split layout */
-    .hero-grid{display:grid; gap:16px}
+    /* HERO panel (prototype style) */
+    .hero-panel{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg,var(--panel),#0e100f);
+      border-radius:22px; padding:24px;
+      box-shadow: 0 35px 70px #00000060, inset 0 1px 0 #ffffff08;
+    }
+    .hero-grid{display:grid; gap:18px}
     .hero-left{display:grid; gap:12px; align-content:start}
-    .photo-box{
-      border:1px dashed #ffffff33; border-radius:16px;
-      background: radial-gradient(600px 400px at 30% 10%, #211a12 0%, transparent 60%),
-                  linear-gradient(180deg,#12100e,#0f0e0d);
-      color:var(--muted); display:grid; place-items:center; text-align:center;
-      padding:14px; min-height:260px;
+    .hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px}
+
+    /* Right-side creative tiles (no faces) */
+    .tiles{position:relative; min-height:340px}
+    .tile{
+      position:absolute; border-radius:14px; border:1px solid var(--border);
+      background:#101312 center/cover no-repeat; color:var(--text);
+      filter:drop-shadow(0 14px 24px #00000050);
     }
-    .photo-box.has-img{
-      border:1px solid var(--border); box-shadow:0 16px 36px #00000040;
-      background-size:cover; background-position:center; color:transparent;
+    .tile::after{content:""; position:absolute; inset:0; border-radius:14px; box-shadow:inset 0 1px 0 #ffffff10}
+    .tile-lg  {width:390px; height:200px; left:70px; top:30px; background-image: url('wave.jpg'), linear-gradient(180deg,#101312,#0f0e0d)}
+    .tile-sm  {width:160px; height:120px; left:0; top:0; background-image: url('pattern.jpg'), linear-gradient(180deg,#111312,#0f0e0d)}
+    .tile-tag {
+      width:180px; height:auto; left:0; top:130px; background:#0f1312d9; padding:10px 12px; line-height:1.35;
     }
-    .cta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
-    .hero-cta .btn{width:auto} /* hero buttons side-by-side */
-    @media(min-width:900px){
-      .hero-grid{grid-template-columns: 1.2fr 1fr} /* left text, right photo */
+    .tile-card{
+      width:210px; min-height:240px; right:0; top:20px;
+      background:linear-gradient(180deg,#0e1514,#0e1110);
+      display:grid; align-content:start; gap:10px; padding:14px;
+    }
+    .pill {display:inline-block; background:#ffffff12; border:1px solid var(--border); padding:6px 10px; border-radius:999px; font-size:12px; color:var(--muted)}
+    .tile-card .btn{width:100%}
+
+    /* Mobile: stack tiles */
+    @media(max-width:899px){
+      .tiles{min-height:unset}
+      .tile, .tile-lg, .tile-sm, .tile-tag, .tile-card{position:static; width:100%; height:auto; margin-top:10px}
+      .tile-lg{height:180px}
     }
 
+    /* Shared blocks */
     .grid{
       display:grid; gap:14px; margin-top:12px;
       grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
@@ -100,8 +120,6 @@
       background:linear-gradient(180deg,#12100e,#0f0e0d);
       border-radius:14px; padding:16px;
     }
-    .pill{display:inline-block;background:#ffffff12;border:1px solid var(--border);
-      padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
     .footer{padding:28px 0; color:var(--muted)}
     a:focus-visible, button:focus-visible{outline:2px solid #fff3; outline-offset:2px; border-radius:10px}
     .anchor{position:relative; top:-72px; visibility:hidden}
@@ -119,29 +137,39 @@
   </header>
 
   <main class="container">
-    <!-- Hero split: left text (Who I am), right photo -->
-    <section class="section" aria-label="Intro">
-      <div class="hero-grid">
-        <!-- Left column -->
-        <div class="hero-left">
-          <h1>Who I am</h1>
-          <p class="lead">
-            SEO strategist focused on organic growth, technical fixes, and clean web experiences.
-            Comfortable with GA4, Search Console, and site performance.
-          </p>
-          <div class="cta-row hero-cta">
-            <a class="btn" href="#projects" aria-label="Jump to projects">See projects</a>
-            <a class="btn btn-outline" href="#about" aria-label="Jump to About">More details</a>
+    <!-- HERO -->
+    <section class="section" aria-label="Hero">
+      <div class="hero-panel">
+        <div class="hero-grid">
+          <!-- Left: text -->
+          <div class="hero-left">
+            <h1>Hi, I’m Aashish</h1>
+            <p class="lead">
+              SEO Strategist & Web Creator. I help businesses grow traffic and conversions with
+              data‑driven SEO, technical fixes, and clean web experiences.
+            </p>
+            <div class="hero-cta">
+              <a class="btn" href="#projects">Check out my work</a>
+              <a class="btn btn-outline" href="#about">More details</a>
+            </div>
           </div>
-        </div>
 
-        <!-- Right column -->
-        <aside class="hero-right">
-          <div class="photo-box" id="photoBox">
-            Add your photo later: upload a file named "me.jpg"
-            (square, e.g. 1024x1024) to this repo. It will appear here automatically.
-          </div>
-        </aside>
+          <!-- Right: creative tiles (abstract images, no faces) -->
+          <aside>
+            <div class="tiles" aria-label="Visual tiles">
+              <div class="tile tile-sm" title="Abstract pattern"></div>
+              <div class="tile tile-tag"><span class="pill">Data‑driven SEO & clean UX</span></div>
+              <div class="tile tile-lg" title="Abstract waves"></div>
+              <div class="tile tile-card" title="Project invite">
+                <h3 style="margin:0">Let’s work together</h3>
+                <p class="lead" style="max-width:unset">
+                  Looking to increase organic reach and performance? I’m available for projects.
+                </p>
+                <a class="btn btn-outline" href="#contact">Contact me</a>
+              </div>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
 
@@ -214,16 +242,12 @@
     <section class="section" aria-label="Contact">
       <h2>Contact</h2>
       <p class="lead">Prefer to reach out from here? Use any option below.</p>
-      <div class="cta-row">
+      <div class="hero-cta">
         <a class="btn"
            href="https://wa.me/9779704501167?text=Hi%20Aashish%2C%20I%27m%20interested%20in%20working%20with%20you."
-           target="_blank" rel="noopener">
-           WhatsApp: +977 9704501167
-        </a>
+           target="_blank" rel="noopener">WhatsApp: +977 9704501167</a>
         <a class="btn btn-outline"
-           href="mailto:aashishkarki470@gmail.com?subject=Project%20Inquiry%20from%20Portfolio&body=Hi%20Aashish%2C">
-           Email: aashishkarki470@gmail.com
-        </a>
+           href="mailto:aashishkarki470@gmail.com?subject=Project%20Inquiry%20from%20Portfolio&body=Hi%20Aashish%2C">Email: aashishkarki470@gmail.com</a>
         <a class="btn btn-outline" href="tel:+9779704501167">Tap to call</a>
         <a class="btn btn-outline" id="cvBtn2" href="cv.pdf" download>Download CV (PDF)</a>
       </div>
@@ -235,20 +259,20 @@
   </footer>
 
   <script>
-    // Year
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Load me.jpg into the photo box automatically (safe if file doesn’t exist)
+    // Tile images (no faces). If wave.jpg / pattern.jpg exist in repo root, use them.
+    // Otherwise fallback to safe abstract images.
     (function(){
-      const box = document.getElementById('photoBox');
-      if(!box) return;
-      const img = new Image();
-      img.onload = function(){
-        box.style.backgroundImage = 'url(me.jpg)';
-        box.classList.add('has-img');
-        box.textContent = '';
-      };
-      img.src = 'me.jpg';
+      const lg = document.querySelector('.tile-lg');
+      const sm = document.querySelector('.tile-sm');
+
+      const setLg = (url)=>{ lg && lg.style.setProperty('background-image', `url('${url}'), linear-gradient(180deg,#101312,#0f0e0d)`); };
+      const setSm = (url)=>{ sm && sm.style.setProperty('background-image', `url('${url}'), linear-gradient(180deg,#111312,#0f0e0d)`); };
+
+      fetch('wave.jpg', {method:'HEAD'}).then(r=>r.ok?setLg('wave.jpg'):setLg('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=60'));
+      fetch('pattern.jpg', {method:'HEAD'}).then(r=>r.ok?setSm('pattern.jpg'):setSm('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=800&q=60'));
     })();
 
     // Enable/disable CV button depending on whether cv.pdf exists
