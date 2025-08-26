@@ -2,293 +2,349 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aashish Karki | Portfolio</title>
-  <meta name="description" content="Aashish Karki — SEO Strategist & Web Creator. About, projects, services, and contact." />
-  <meta name="theme-color" content="#0f0e0d" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aashish Karki — Digital Marketing & SEO Specialist</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
-    :root{
-      --bg:#0f0e0d; --bg2:#151311;
-      --text:#eee9e4; --muted:#b3aca4;
-      --accent:#5fd0c8;           /* teal accent (prototype vibe) */
-      --accent-ink:#0c1110;
-      --border:#ffffff1a;
-      --panel:#0f1312;             /* hero panel surface */
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1100px 700px at 50% -20%, #1a1f1e 0%, transparent 60%),
-        linear-gradient(#0e100f,#141615);
-      line-height:1.65;
-    }
-    body::after{ /* soft accent glow */
-      content:""; position:fixed; inset:0; pointer-events:none;
-      background: radial-gradient(700px 360px at 65% 0%, #5fd0c825, transparent 60%);
-      mix-blend-mode:screen;
-    }
-
-    .container{max-width:1100px;margin:0 auto;padding:20px}
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:8px; flex-wrap:wrap;
-      padding:12px 0; position:sticky; top:0; z-index:20;
-      background:rgba(14,16,15,.7); backdrop-filter:blur(6px);
-      border-bottom:1px solid var(--border);
-    }
-    .brand{
-      font-weight:800; letter-spacing:.4px; font-size:clamp(18px, 3.5vw, 22px);
-      background:linear-gradient(90deg,#fff,#e6d3bf);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-    .links{display:flex; gap:12px; flex-wrap:wrap}
-    .links a{color:var(--muted); text-decoration:none; padding:6px 8px; border-radius:10px}
-    .links a:hover{color:var(--text); background:#ffffff0a}
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      background:var(--accent); color:var(--accent-ink);
-      padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:700;
-      min-height:44px; border:0; box-shadow:0 10px 24px #5fd0c835;
-      transition:transform .15s, box-shadow .2s;
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow:0 14px 32px #5fd0c83f}
-    .btn-outline{
-      background:transparent; color:var(--text); border:1px solid var(--border);
-      box-shadow:none;
-    }
-    .btn-outline:hover{border-color:#ffffff33}
-
-    .section{padding:48px 0; border-bottom:1px solid var(--border)}
-    h1{font-size:clamp(30px, 6.2vw, 48px); line-height:1.15; margin:0 0 12px}
-    h2{margin:0 0 16px; font-size:clamp(20px, 3.5vw, 28px)}
-    h3{margin:0 0 8px}
-    .lead{color:var(--muted); max-width:740px}
-
-    /* HERO panel (prototype style) */
-    .hero-panel{
-      border:1px solid var(--border);
-      background:linear-gradient(180deg,var(--panel),#0e100f);
-      border-radius:22px; padding:24px;
-      box-shadow: 0 35px 70px #00000060, inset 0 1px 0 #ffffff08;
-    }
-    .hero-grid{display:grid; gap:18px}
-    .hero-left{display:grid; gap:12px; align-content:start}
-    .hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:8px}
-
-    /* Right-side creative tiles (no faces) */
-    .tiles{position:relative; min-height:340px}
-    .tile{
-      position:absolute; border-radius:14px; border:1px solid var(--border);
-      background:#101312 center/cover no-repeat; color:var(--text);
-      filter:drop-shadow(0 14px 24px #00000050);
-    }
-    .tile::after{content:""; position:absolute; inset:0; border-radius:14px; box-shadow:inset 0 1px 0 #ffffff10}
-    .tile-lg  {width:390px; height:200px; left:70px; top:30px; background-image: url('wave.jpg'), linear-gradient(180deg,#101312,#0f0e0d)}
-    .tile-sm  {width:160px; height:120px; left:0; top:0; background-image: url('pattern.jpg'), linear-gradient(180deg,#111312,#0f0e0d)}
-    .tile-tag {
-      width:180px; height:auto; left:0; top:130px; background:#0f1312d9; padding:10px 12px; line-height:1.35;
-    }
-    .tile-card{
-      width:210px; min-height:240px; right:0; top:20px;
-      background:linear-gradient(180deg,#0e1514,#0e1110);
-      display:grid; align-content:start; gap:10px; padding:14px;
-    }
-    .pill {display:inline-block; background:#ffffff12; border:1px solid var(--border); padding:6px 10px; border-radius:999px; font-size:12px; color:var(--muted)}
-    .tile-card .btn{width:100%}
-
-    /* Mobile: stack tiles */
-    @media(max-width:899px){
-      .tiles{min-height:unset}
-      .tile, .tile-lg, .tile-sm, .tile-tag, .tile-card{position:static; width:100%; height:auto; margin-top:10px}
-      .tile-lg{height:180px}
-    }
-
-    /* Shared blocks */
-    .grid{
-      display:grid; gap:14px; margin-top:12px;
-      grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
-    }
-    .card{
-      border:1px solid var(--border);
-      background:linear-gradient(180deg,#12100e,#0f0e0d);
-      border-radius:14px; padding:16px;
-    }
-    .footer{padding:28px 0; color:var(--muted)}
-    a:focus-visible, button:focus-visible{outline:2px solid #fff3; outline-offset:2px; border-radius:10px}
-    .anchor{position:relative; top:-72px; visibility:hidden}
+    :root{--accent:#0ea5a4;--accent-2:#ef4444;--muted:#6b7280}
+    body{font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#ffffff,#f8fafc)}
+    .paper-card{background:linear-gradient(180deg,rgba(255,255,255,0.98),#fbfbfb);box-shadow:0 12px 30px rgba(2,6,23,0.06);border-radius:14px;padding:20px}
+    .logo-mark{font-weight:800;letter-spacing:0.4px}
+    .floating{transform-style:preserve-3d}
+    .modal-backdrop{background:rgba(2,6,23,0.45)}
+    .step-item{border-left:4px solid rgba(14,165,164,0.14);padding-left:12px}
+    table.report-table{width:100%;border-collapse:collapse;margin-top:8px}
+    table.report-table th, table.report-table td{border:1px solid rgba(15,23,42,0.06);padding:8px;text-align:left}
+    table.report-table thead th{background:linear-gradient(90deg,#06b6d4,#0ea5a4);color:white}
+    .kpi-badge{display:inline-block;padding:6px 8px;border-radius:8px;font-weight:600}
+    .kpi-up{background:linear-gradient(90deg,#34d399,#10b981);color:white}
+    .kpi-stable{background:#f3f4f6;color:#111}
+    .colored-section{background:linear-gradient(90deg,#fff7ed,#fff1f2);padding:12px;border-radius:10px}
   </style>
 </head>
 <body>
-  <header class="container nav" aria-label="Main navigation">
-    <div class="brand">Aashish Karki</div>
-    <nav class="links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#services">Services</a>
-      <a href="#contact" class="pill">Contact</a>
+<header class="fixed w-full z-50 backdrop-blur-sm bg-white/60 shadow-sm">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <svg width="44" height="44" viewBox="0 0 48 48" class="rounded-md bg-gradient-to-br from-emerald-400 to-cyan-400 p-1">
+        <rect x="4" y="4" width="40" height="40" rx="10" fill="white"/>
+        <path d="M14 32L24 16L34 32H14Z" fill="#06b6d4"/>
+      </svg>
+      <div>
+        <div class="text-sm text-slate-700">Aashish</div>
+        <div class="logo-mark text-lg">Karki • SEO & AI Marketing</div>
+      </div>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#tools" class="nav-link">Tools</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a id="downloadCvTop" class="bg-emerald-500 text-white px-4 py-2 rounded-md">Download CV</a>
     </nav>
-  </header>
+    <button id="mobileToggle" class="md:hidden p-2 rounded-md bg-white/60 border">☰</button>
+  </div>
+</header>
 
-  <main class="container">
-    <!-- HERO -->
-    <section class="section" aria-label="Hero">
-      <div class="hero-panel">
-        <div class="hero-grid">
-          <!-- Left: text -->
-          <div class="hero-left">
-            <h1>Hi, I’m Aashish</h1>
-            <p class="lead">
-              SEO Strategist & Web Creator. I help businesses grow traffic and conversions with
-              data‑driven SEO, technical fixes, and clean web experiences.
-            </p>
-            <div class="hero-cta">
-              <a class="btn" href="#projects">Check out my work</a>
-              <a class="btn btn-outline" href="#about">More details</a>
-            </div>
-          </div>
+<main class="pt-28">
+  <!-- HERO -->
+  <section id="hero" class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <div class="text-sm text-emerald-600 mb-3">Digital Marketing • SEO • AI-visible Marketing</div>
+      <h1 class="text-4xl md:text-5xl font-extrabold">I make brands searchable — and found by AI.</h1>
+      <p class="mt-6 text-lg text-slate-700">I’m <strong>Aashish Karki</strong>, a digital marketing & AI specialist. I plan, execute and measure SEO and lead-generation campaigns that move the needle — demonstrated by clear before/after case studies.</p>
+      <div class="mt-8 flex gap-4">
+        <a href="#projects" class="px-6 py-3 bg-emerald-500 text-white rounded-md">See projects</a>
+        <a href="#contact" class="px-6 py-3 border rounded-md text-slate-700">Contact</a>
+      </div>
 
-          <!-- Right: creative tiles (abstract images, no faces) -->
-          <aside>
-            <div class="tiles" aria-label="Visual tiles">
-              <div class="tile tile-sm" title="Abstract pattern"></div>
-              <div class="tile tile-tag"><span class="pill">Data‑driven SEO & clean UX</span></div>
-              <div class="tile tile-lg" title="Abstract waves"></div>
-              <div class="tile tile-card" title="Project invite">
-                <h3 style="margin:0">Let’s work together</h3>
-                <p class="lead" style="max-width:unset">
-                  Looking to increase organic reach and performance? I’m available for projects.
-                </p>
-                <a class="btn btn-outline" href="#contact">Contact me</a>
-              </div>
-            </div>
-          </aside>
+      <div class="mt-8 grid grid-cols-3 gap-3 text-center">
+        <div class="paper-card relative p-4">
+          <div class="text-2xl font-bold" id="statTraffic">+0%</div>
+          <div class="text-xs mt-1 text-slate-500">Traffic uplift</div>
+        </div>
+        <div class="paper-card relative p-4">
+          <div class="text-2xl font-bold" id="statLeads">0</div>
+          <div class="text-xs mt-1 text-slate-500">Leads / month</div>
+        </div>
+        <div class="paper-card relative p-4">
+          <div class="text-2xl font-bold" id="statRating">4.8</div>
+          <div class="text-xs mt-1 text-slate-500">Avg client rating</div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- About -->
-    <span id="about" class="anchor"></span>
-    <section class="section" aria-label="About Aashish">
-      <h2>About</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Who I am</h3>
-          <p class="lead">
-            SEO strategist focused on organic growth, technical fixes, and clean web experiences.
-            Comfortable with GA4, Search Console, and site performance.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Highlights</h3>
-          <ul style="margin:0;padding-left:18px;color:var(--muted);line-height:1.8">
-            <li>Specialties: Technical SEO, content hubs, local SEO</li>
-            <li>Tools: GA4, GSC, Screaming Frog, Ahrefs/SEMrush</li>
-            <li>Stack: HTML • CSS • JavaScript (GitHub Pages)</li>
-            <li>Based in Nepal • Available worldwide</li>
-          </ul>
-        </article>
+    <div class="floating">
+      <div id="mainCard" class="paper-card mx-auto max-w-md" style="transform:rotateX(8deg) rotateY(-8deg)">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-xs text-slate-500">Featured — Local SEO</div>
+            <div class="text-lg font-semibold">Paranoma Rooftop Cafe • Kalanki</div>
+          </div>
+          <div class="text-sm text-slate-600">⭐ 4.8</div>
+        </div>
+        <div class="mt-4 grid grid-cols-2 gap-3">
+          <div class="paper-card p-3">
+            <div class="text-xs text-slate-500">Campaign period</div>
+            <div class="text-2xl font-bold">2 months</div>
+          </div>
+          <div class="paper-card p-3">
+            <div class="text-xs text-slate-500">Traffic change</div>
+            <div class="text-2xl font-bold">+60%</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <canvas id="heroDemoChart" height="120"></canvas>
+        </div>
+        <div class="mt-4 flex gap-3">
+          <button data-project="paranoma" class="open-report px-4 py-2 bg-emerald-500 text-white rounded-md">View full report</button>
+          <a href="#projects" class="px-4 py-2 border rounded-md">See projects</a>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Projects -->
-    <span id="projects" class="anchor"></span>
-    <section class="section" aria-label="Highlighted projects">
-      <h2>Highlighted projects</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Local business SEO uplift</h3>
-          <p class="lead">+140% organic traffic in 3 months through technical fixes, content strategy, and local optimizations.</p>
-        </article>
-        <article class="card">
-          <h3>Content hub build</h3>
-          <p class="lead">Fast content hub and internal linking → +70% keyword footprint and improved indexation.</p>
-        </article>
-        <article class="card">
-          <h3>Site speed improvement</h3>
-          <p class="lead">Core Web Vitals fixes brought LCP under 2.5s and raised conversions 20%.</p>
-        </article>
+  <!-- ABOUT -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-12">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="md:col-span-2">
+        <h2 class="text-3xl font-bold">About</h2>
+        <p class="mt-4 text-slate-700">I deliver measurable SEO and lead-generation results. My approach combines technical SEO, content strategy, local optimization and AI-driven visibility tactics so your brand is surfaced by both search engines and AI research/recommendation platforms.</p>
+
+        <h3 class="mt-6 font-semibold">What I do (short)</h3>
+        <ul class="mt-3 text-slate-600">
+          <li>• Technical & on-page SEO</li>
+          <li>• Local business & GMB optimization</li>
+          <li>• AI-visible marketing: optimization for search & AI recommendation signals</li>
+          <li>• Paid + organic acquisition & funnel optimization</li>
+        </ul>
+
+        <h3 class="mt-6 font-semibold">About Aashish — professional summary</h3>
+        <p class="mt-2 text-slate-700">Aashish Karki — modern digital marketing & AI specialist focused on creating AI-visible brand footprints. Recent work includes local hospitality SEO and e-commerce lead-generation campaigns with clear before/after reports and KPI dashboards.</p>
+
+        <h3 class="mt-6 font-semibold">How AI-visible marketing helps</h3>
+        <p class="mt-2 text-slate-600">When AI research or recommendation platforms index the web, signals such as structured data, topical authority, and user engagement influence whether AI will recommend your brand. My projects include those signals so your brand is more likely to surface in AI-driven discovery.</p>
       </div>
-    </section>
 
-    <!-- Services -->
-    <span id="services" class="anchor"></span>
-    <section class="section" aria-label="Services">
-      <h2>Services</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Technical SEO</h3>
-          <p class="lead">Site audits, Core Web Vitals, indexation, sitemaps, and structured data.</p>
-        </article>
-        <article class="card">
-          <h3>Content & Strategy</h3>
-          <p class="lead">Keyword research, topic clusters, and on‑page optimization that converts.</p>
-        </article>
-        <article class="card">
-          <h3>Analytics & Reporting</h3>
-          <p class="lead">GA4 dashboards, Search Console insights, and clear monthly reporting.</p>
-        </article>
+      <aside class="paper-card">
+        <div class="text-sm text-slate-500">Contact</div>
+        <div class="mt-2 font-semibold">Aashish Karki</div>
+        <div class="text-sm mt-1 text-slate-600">Digital Marketing & SEO Specialist</div>
+        <div class="mt-3 text-sm"><strong>WhatsApp:</strong> <a href="https://wa.me/9779704501167" class="text-emerald-600">+977 9704501167</a></div>
+        <div class="mt-1 text-sm"><strong>Email:</strong> <a href="mailto:aashishkarki470@gmail.com" class="text-emerald-600">aashishkarki470@gmail.com</a></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="max-w-6xl mx-auto px-6 py-12 bg-slate-50">
+    <h2 class="text-3xl font-bold text-center">Projects</h2>
+    <p class="text-center mt-2 text-slate-600">Case studies with step-by-step tactics, KPIs and professional reports.</p>
+
+    <div class="mt-8 grid md:grid-cols-2 gap-8">
+      <!-- Paranoma -->
+      <div class="paper-card">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="text-xs text-slate-500">Local SEO • Hospitality</div>
+            <div class="text-xl font-semibold">Paranoma Rooftop Cafe — Kalanki</div>
+          </div>
+          <div class="text-sm text-slate-600">⭐ 4.8</div>
+        </div>
+        <p class="mt-3 text-slate-700">Scope: Local SEO, Google Business Profile, content & citation cleanup.</p>
+        <div class="mt-4 grid grid-cols-2 gap-3">
+          <div class="paper-card p-3">
+            <div class="text-xs text-slate-500">Traffic</div>
+            <div class="text-lg font-bold">+60% in 2 months</div>
+          </div>
+          <div class="paper-card p-3">
+            <div class="text-xs text-slate-500">Local ranking</div>
+            <div class="text-lg font-bold">#120 → #6 (Top 10)</div>
+          </div>
+        </div>
+        <div class="mt-4 flex gap-3">
+          <button data-project="paranoma" class="open-report px-4 py-2 bg-emerald-500 text-white rounded-md">View detailed report</button>
+          <a href="#contact" class="px-4 py-2 border rounded-md">Contact</a>
+        </div>
       </div>
-    </section>
 
-    <!-- Contact -->
-    <span id="contact" class="anchor"></span>
-    <section class="section" aria-label="Contact">
-      <h2>Contact</h2>
-      <p class="lead">Prefer to reach out from here? Use any option below.</p>
-      <div class="hero-cta">
-        <a class="btn"
-           href="https://wa.me/9779704501167?text=Hi%20Aashish%2C%20I%27m%20interested%20in%20working%20with%20you."
-           target="_blank" rel="noopener">WhatsApp: +977 9704501167</a>
-        <a class="btn btn-outline"
-           href="mailto:aashishkarki470@gmail.com?subject=Project%20Inquiry%20from%20Portfolio&body=Hi%20Aashish%2C">Email: aashishkarki470@gmail.com</a>
-        <a class="btn btn-outline" href="tel:+9779704501167">Tap to call</a>
-        <a class="btn btn-outline" id="cvBtn2" href="cv.pdf" download>Download CV (PDF)</a>
+      <!-- Luina -->
+      <div class="paper-card">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="text-xs text-slate-500">E-commerce • Lead Gen</div>
+            <div class="text-xl font-semibold">Luina — Beauty Brand</div>
+          </div>
+          <div class="text-sm text-slate-600">Online-only</div>
+        </div>
+        <p class="mt-3 text-slate-700">Scope: Paid + organic funnel, landing page optimization, lead nurturing and retention.</p>
+        <div class="mt-4 grid grid-cols-3 gap-3">
+          <div class="paper-card p-3">
+            <div class="text-xs text-slate-500">Leads / mo</div>
+            <div class="text-lg font-bold">420</div>
+          </div>
+          <div class="paper-card p-3">
+            <div class="text-xs text-slate-500">Conversion</div>
+            <div class="text-lg font-bold">6.4%</div>
+          </div>
+          <div class="paper-card p-3">
+            <div class="text-xs text-slate-500">CPA</div>
+            <div class="text-lg font-bold">↓ 38%</div>
+          </div>
+        </div>
+        <div class="mt-4 flex gap-3">
+          <button data-project="luina" class="open-report px-4 py-2 bg-emerald-500 text-white rounded-md">View detailed report</button>
+          <a href="#contact" class="px-4 py-2 border rounded-md">Contact</a>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="container footer">
-    © <span id="year"></span> Aashish Karki
-  </footer>
+  <!-- TOOLS -->
+  <section id="tools" class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold text-center">Tools & Workflow</h2>
+    <p class="text-center mt-2 text-slate-600">Tools I use: Google Search Console, Ahrefs/Semrush, Screaming Frog, Analytics, Hotjar, and AI tooling for intent mapping.</p>
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <div class="paper-card">• Google Search Console</div>
+      <div class="paper-card">• Ahrefs / Semrush</div>
+      <div class="paper-card">• Screaming Frog</div>
+    </div>
+  </section>
 
-  <script>
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto px-6 py-12 bg-slate-50">
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="paper-card">
+        <h3 class="text-2xl font-semibold">Get a professional audit</h3>
+        <p class="mt-3 text-slate-700">Fill the form and I will send a professional audit and quick wins.</p>
+        <form id="contactForm" class="mt-6 space-y-3">
+          <input id="name" class="w-full p-3 border rounded-md" placeholder="Your name" required />
+          <input id="email" class="w-full p-3 border rounded-md" placeholder="Email" type="email" required />
+          <textarea id="message" class="w-full p-3 border rounded-md" placeholder="Project / message" rows="4"></textarea>
+          <div class="flex gap-3">
+            <a href="https://wa.me/9779704501167" target="_blank" class="px-4 py-3 bg-emerald-500 text-white rounded-md">WhatsApp</a>
+            <button type="submit" class="px-4 py-3 border rounded-md">Send</button>
+          </div>
+        </form>
+      </div>
 
-    // Tile images (no faces). If wave.jpg / pattern.jpg exist in repo root, use them.
-    // Otherwise fallback to safe abstract images.
-    (function(){
-      const lg = document.querySelector('.tile-lg');
-      const sm = document.querySelector('.tile-sm');
+      <div class="paper-card">
+        <h3 class="text-2xl font-semibold">Contact & Details</h3>
+        <div class="mt-3 text-slate-700">
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/9779704501167">+977 9704501167</a></p>
+          <p class="mt-2"><strong>Email:</strong> <a href="mailto:aashishkarki470@gmail.com">aashishkarki470@gmail.com</a></p>
+          <p class="mt-4 text-sm text-slate-500">Location: Kathmandu, Nepal</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      const setLg = (url)=>{ lg && lg.style.setProperty('background-image', `url('${url}'), linear-gradient(180deg,#101312,#0f0e0d)`); };
-      const setSm = (url)=>{ sm && sm.style.setProperty('background-image', `url('${url}'), linear-gradient(180deg,#111312,#0f0e0d)`); };
+  <footer class="py-10 text-center text-sm text-slate-500">© <span id="year"></span> Aashish Karki — SEO & AI Marketing</footer>
+</main>
 
-      fetch('wave.jpg', {method:'HEAD'}).then(r=>r.ok?setLg('wave.jpg'):setLg('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=60'));
-      fetch('pattern.jpg', {method:'HEAD'}).then(r=>r.ok?setSm('pattern.jpg'):setSm('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=800&q=60'));
-    })();
+<!-- Modal / Project detail overlay -->
+<div id="projectModal" class="hidden fixed inset-0 z-60 flex items-start justify-center pt-20">
+  <div class="modal-backdrop absolute inset-0" id="modalBackdrop"></div>
+  <div class="relative z-70 max-w-4xl w-full px-6">
+    <div class="paper-card" id="modalInner">
+      <div class="flex items-start justify-between">
+        <div>
+          <h3 id="modalTitle" class="text-2xl font-bold">Project report</h3>
+          <div id="modalSubtitle" class="text-sm text-slate-600">Comprehensive report</div>
+        </div>
+        <div>
+          <button id="closeModal" class="px-3 py-2 border rounded-md">Close</button>
+        </div>
+      </div>
 
-    // Enable/disable CV button depending on whether cv.pdf exists
-    (function(){
-      const btn = document.getElementById('cvBtn2');
-      if (!btn) return;
-      fetch('cv.pdf', { method: 'HEAD' })
-        .then(r => { if (!r.ok) throw new Error(); })
-        .catch(() => {
-          btn.textContent = 'Upload cv.pdf to enable';
-          btn.style.opacity = '0.6';
-          btn.style.pointerEvents = 'none';
-          btn.removeAttribute('href');
-          btn.removeAttribute('download');
-        });
-    })();
-  </script>
-</body>
-  </html>
+      <div class="mt-4" id="modalReportContent">
+        <!-- Report HTML will be injected here -->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Smooth nav
+  document.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',(e)=>{e.preventDefault(); const id=a.getAttribute('href').slice(1); document.getElementById(id).scrollIntoView({behavior:'smooth'})}));
+
+  // Counters (demo dynamic)
+  const statTraffic = document.getElementById('statTraffic');
+  const statLeads = document.getElementById('statLeads');
+  let t=0; const targetTraffic=60; const targetLeads=420;
+  const intv=setInterval(()=>{t++; statTraffic.textContent = '+' + Math.min(Math.round(targetTraffic*(t/60)), targetTraffic) + '%'; statLeads.textContent = Math.min(Math.round(targetLeads*(t/60)), targetLeads); if(t>=60) clearInterval(intv)}, 30);
+
+  // Hero chart (paranoma demo)
+  const heroCtx = document.getElementById('heroDemoChart').getContext('2d');
+  const heroChart = new Chart(heroCtx, {type:'line', data:{labels:['Week 0','Week 2','Week 4','Week 6','Week 8'], datasets:[{label:'Visibility score',data:[12,28,45,68,85],fill:true,tension:0.4}]}, options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
+
+  // Reports content including full Paranoma report HTML (styled)
+  const reports = {
+    paranoma: {
+      key:'paranoma',
+      title:'Paranoma Rooftop Cafe — Kalanki (SEO & Local Presence Performance Report)',
+      subtitle:'Reporting Period: October 2023 — Prepared by: Aashish Karki',
+      html: `
+        <div class="colored-section">
+          <h4 class="text-xl font-semibold">Executive Summary</h4>
+          <p class="mt-2 text-slate-700">This report outlines the ongoing SEO initiatives and performance for <strong>Paranoma Rooftop Cafe</strong>. This month we focused on local dominance, on-page optimisation, and digital footprint expansion. Key achievements include a <span class="kpi-badge kpi-up">+22% GBP direction requests</span> and <span class="kpi-badge kpi-up">+15% organic traffic</span>.</p>
+          <table class="report-table mt-4"><thead><tr><th>Metric</th><th>Current Status</th><th>Trend</th></tr></thead><tbody>
+            <tr><td><strong>GBP Search Views</strong></td><td>15,200</td><td>📈 +18% MoM</td></tr>
+            <tr><td><strong>Organic Sessions</strong></td><td>1,850</td><td>📈 +15% MoM</td></tr>
+            <tr><td><strong>Average Star Rating</strong></td><td>4.8 / 5.0</td><td>⭐ Stable</td></tr>
+            <tr><td><strong>Core Web Vitals</strong></td><td>95% URLs Pass</td><td>✅ Healthy</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="mt-6">
+          <h4 class="text-lg font-semibold">2.0 Local SEO Performance — Google Business Profile (GBP)</h4>
+          <table class="report-table mt-2"><thead><tr><th>Component</th><th>Status</th><th>Notes & Actions</th></tr></thead><tbody>
+            <tr><td>Profile Completion</td><td>✅ 100% Complete</td><td>All core fields optimised</td></tr>
+            <tr><td>Categories</td><td>✅ Optimized</td><td>Primary: Cafe; Secondary: Breakfast restaurant</td></tr>
+            <tr><td>Services & Menu</td><td>✅ Updated</td><td>Full menu uploaded with pricing</td></tr>
+            <tr><td>Hours & Photos</td><td>✅ Optimized</td><td>10 new high-res photos uploaded</td></tr>
+            <tr><td>UTM Tracking Link</td><td>✅ Implemented</td><td>GA4 source: gbp-website-link</td></tr>
+            <tr><td>Weekly Posts</td><td>🔄 In Progress</td><td>3/4 posts published promoting specials</td></tr>
+            <tr><td>Q&A Seeding</td><td>✅ Complete</td><td>Top FAQs seeded and answered</td></tr>
+            <tr><td>Review Request Link</td><td>✅ Deployed</td><td>Short link added to receipts & IG bio</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="mt-6">
+          <h4 class="text-lg font-semibold">3.0 Citation & NAP Consistency</h4>
+          <table class="report-table mt-2"><thead><tr><th>Directory</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+            <tr><td>Apple Maps</td><td>✅ Verified & Synced</td><td></td></tr>
+            <tr><td>Bing Places</td><td>✅ Verified & Synced</td><td></td></tr>
+            <tr><td>Yelp</td><td>✅ Optimized</td><td>Responded to all new reviews within 48 hours</td></tr>
+            <tr><td>TripAdvisor</td><td>✅ Optimized</td><td>Added new event photos</td></tr>
+            <tr><td>Facebook / Instagram</td><td>✅ Synced</td><td>Address & hours match GBP</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="mt-6">
+          <h4 class="text-lg font-semibold">4.0 On-Page SEO Health</h4>
+          <table class="report-table mt-2"><thead><tr><th>On-Page Element</th><th>Status</th><th>Details & Next Steps</th></tr></thead><tbody>
+            <tr><td>Keyword Mapping</td><td>✅ Complete</td><td>Pages mapped to primary local keywords</td></tr>
+            <tr><td>Metadata</td><td>✅ Optimized</td><td>Unique titles & meta descriptions added</td></tr>
+            <tr><td>Schema Markup</td><td>✅ Deployed</td><td>LocalBusiness & Menu JSON-LD validated</td></tr>
+            <tr><td>Content Strategy</td><td>🔄 In Progress</td><td>Blog post: 'Our Fall Seasonal Drink Lineup' published</td></tr>
+            <tr><td>Internal Linking</td><td>✅ Optimized</td><td>Key blog posts link to Menu & Location pages</td></tr>
+          </tbody></table>
+        </div>
+
+        <div class="mt-6">
+          <h4 class="text-lg font-semibold">5.0 Technical SEO Audit</h4>
+          <table class="report-table mt-2"><thead><tr><th>Technical Area</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+            <tr><td>Core Web Vitals</td><td>✅ Passing</td><td>95% of URLs pass CWV assessment</td></tr>
+            <tr><td>Mobile-First Indexing</td><td>✅ Healthy</td><td>Passes Mobile-Friendly Test</td></tr>
+            <tr><td>Image Optimization</td><td>✅ Optimized</td><td>Images served in WebP; lazy loading enabled</td></tr>
+            <tr><td>Indexi
