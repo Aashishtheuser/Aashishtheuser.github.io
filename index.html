@@ -1,196 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Audit Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aashish Karki - Digital Marketing & AI Visibility Specialist</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="technical-audit.html">Technical Audit</a>
-            <a href="results.html">Results</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <main>
-        <h1>Website Audit Results</h1>
-        <p>This portfolio showcases the comprehensive audit and optimization of a client's website. The results below demonstrate the improvements made to enhance performance, user experience, and search engine visibility.</p>
-        <ul>
-            <li><strong>Technical Audit Report</strong> - Detailed analysis of website performance, code quality, and mobile responsiveness.</li>
-            <li><strong>Optimization Results</strong> - Summary of the key improvements and outcomes achieved.</li>
-            <li><strong>Contact Information</strong> - How to get in touch for further projects or inquiries.</li>
-        </ul>
-        <p>Explore the sections above to see the full details of each part of the audit.</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 Web Optimization Portfolio</p>
-    </footer>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow fixed w-full z-10">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#home" class="text-2xl font-bold text-gray-800">Aashish Karki</a>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6">
+        <a href="#home" class="text-gray-600 hover:text-blue-500">Home</a>
+        <a href="#casestudies" class="text-gray-600 hover:text-blue-500">Case Studies</a>
+        <a href="#contact" class="text-gray-600 hover:text-blue-500">Contact</a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="menu-button" class="text-gray-600 focus:outline-none">
+          <!-- Menu icon -->
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-2 pt-2 pb-4 space-y-1 bg-white">
+      <a href="#home" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Home</a>
+      <a href="#casestudies" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Case Studies</a>
+      <a href="#contact" class="block px-3 py-2 rounded text-gray-700 hover:bg-gray-100">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="pt-24 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+    <div class="container mx-auto px-4 py-16 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Aashish Karki</h1>
+      <p class="text-xl md:text-2xl mb-8">Modern Digital Marketing & AI Visibility Specialist</p>
+      <p class="text-md md:text-lg mb-6">I help businesses enhance their online presence and grow with AI-driven marketing strategies.</p>
+      <a href="#casestudies" class="inline-block bg-white text-blue-600 font-semibold py-3 px-6 rounded shadow hover:bg-gray-100">View Case Studies</a>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section id="casestudies" class="bg-gray-50 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Case Studies</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Case Study 1 -->
+        <div class="bg-white rounded-lg shadow p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Paranoma Rooftop Cafe</h3>
+            <p class="text-gray-600 mb-4">Comprehensive SEO Audit & Website Performance Improvement</p>
+          </div>
+          <button id="open-modal-1" class="mt-4 self-start bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Report</button>
+        </div>
+        <!-- Case Study 2 -->
+        <div class="bg-white rounded-lg shadow p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Luina Beauty Brand</h3>
+            <p class="text-gray-600 mb-4">Digital Marketing & Lead Generation Results</p>
+          </div>
+          <button id="open-modal-2" class="mt-4 self-start bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Report</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">Contact</h2>
+      <p class="text-gray-600 mb-6">Let's connect! You can reach out via WhatsApp or email.</p>
+      <div class="space-x-4">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/9779704501167" target="_blank" class="inline-flex items-center bg-green-500 text-white px-5 py-3 rounded shadow hover:bg-green-600">
+          <!-- WhatsApp Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 mr-2" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+          </svg>
+          WhatsApp
+        </a>
+        <!-- Email Button -->
+        <a href="mailto:aashishkarki470@gmail.com" class="inline-flex items-center bg-blue-600 text-white px-5 py-3 rounded shadow hover:bg-blue-700">
+          <!-- Email Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 mr-2" viewBox="0 0 16 16">
+            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+          </svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 mt-auto">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2023 Aashish Karki. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <!-- Modal 1 - Paranoma Rooftop Cafe Report -->
+  <div id="modal-1" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg max-w-lg mx-4">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Paranoma Rooftop Cafe - SEO Audit Report</h3>
+        <p class="text-gray-700 mb-3">We performed a comprehensive SEO audit on Paranoma Rooftop Cafe's website. Key improvements included optimizing meta tags, enhancing mobile responsiveness, and improving page load speed by 30%. We also fixed broken links and image alt tags, and implemented structured data markup for better search visibility.</p>
+        <p class="text-gray-700 mb-3">Our structured performance roadmap focused on content quality, internal linking, and site architecture. These changes are projected to significantly increase organic traffic, improve Google ranking, and enhance user experience.</p>
+        <button id="close-modal-1" class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 - Luina Beauty Brand Report -->
+  <div id="modal-2" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg max-w-lg mx-4">
+      <div class="p-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Luina Beauty Brand - Lead Generation Results</h3>
+        <p class="text-gray-700 mb-3">We led a targeted digital marketing campaign for Luina Beauty Brand focused on lead generation. Strategies included social media advertising, email marketing campaigns, and SEO enhancements. Over the quarter, we generated over 1,200 qualified leads and increased website visits by 50%.</p>
+        <p class="text-gray-700 mb-3">AI analytics were used to optimize ad targeting and content, resulting in a 20% boost in conversion rates. These results significantly expanded Luina's sales pipeline and improved ROI.</p>
+        <button id="close-modal-2" class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Smooth scrolling style (redundant as html class used) -->
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+
+  <!-- JavaScript for menu toggle and modals -->
+  <script>
+    document.getElementById('menu-button').addEventListener('click', function() {
+      var menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Modal 1 open and close
+    document.getElementById('open-modal-1').addEventListener('click', function() {
+      document.getElementById('modal-1').classList.remove('hidden');
+    });
+    document.getElementById('close-modal-1').addEventListener('click', function() {
+      document.getElementById('modal-1').classList.add('hidden');
+    });
+
+    // Modal 2 open and close
+    document.getElementById('open-modal-2').addEventListener('click', function() {
+      document.getElementById('modal-2').classList.remove('hidden');
+    });
+    document.getElementById('close-modal-2').addEventListener('click', function() {
+      document.getElementById('modal-2').classList.add('hidden');
+    });
+  </script>
+
 </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Audit</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="technical-audit.html">Technical Audit</a>
-            <a href="results.html">Results</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <main>
-        <h1>Technical Audit Findings</h1>
-        <p>The technical audit examined the website's structure and performance. Key findings include:</p>
-        <ul>
-            <li><strong>Page Load Speed:</strong> Initially 3.2 seconds. After optimization, load time decreased to 1.8 seconds by compressing images and minifying scripts.</li>
-            <li><strong>Responsive Design:</strong> Addressed layout issues to ensure a seamless experience on mobile and desktop devices.</li>
-            <li><strong>SEO Tags:</strong> Added missing meta descriptions and title tags to improve search engine visibility.</li>
-            <li><strong>Broken Links:</strong> Found and fixed 5 broken internal links to improve site navigation and user experience.</li>
-            <li><strong>Security:</strong> Implemented HTTPS/SSL to secure data and boost search ranking.</li>
-        </ul>
-        <p>These technical improvements resulted in a faster, more stable, and secure website experience.</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 Web Optimization Portfolio</p>
-    </footer>
-</body>
-  </html>
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="technical-audit.html">Technical Audit</a>
-            <a href="results.html">Results</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <main>
-        <h1>Optimization Results</h1>
-        <p>After implementing the improvements from the technical audit, the website showed significant gains:</p>
-        <ul>
-            <li><strong>Performance Improvement:</strong> PageSpeed score increased from 55 to 90 on mobile and desktop.</li>
-            <li><strong>User Experience:</strong> Mobile-friendly score improved to 100/100, enhancing accessibility on all devices.</li>
-            <li><strong>Traffic Growth:</strong> Organic search traffic increased by 35% within three months.</li>
-            <li><strong>SEO Ranking:</strong> The website now ranks on the first page of search results for targeted keywords.</li>
-        </ul>
-        <p>Overall, these results highlight the success of the optimizations in improving site performance and visibility.</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 Web Optimization Portfolio</p>
-    </footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="technical-audit.html">Technical Audit</a>
-            <a href="results.html">Results</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <main>
-        <h1>Contact Me</h1>
-        <p>Interested in improving your website? Feel free to reach out for a detailed analysis or project collaboration:</p>
-        <ul>
-            <li><strong>Email:</strong> <a href="mailto:example@example.com">example@example.com</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></li>
-        </ul>
-    </main>
-    <footer>
-        <p>&copy; 2025 Web Optimization Portfolio</p>
-    </footer>
-</body>
-  </html>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f8f9fa;
-    color: #333;
-}
-header {
-    background: #333;
-    padding: 10px 0;
-}
-nav {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-nav a {
-    color: #f8f9fa;
-    text-decoration: none;
-    padding: 10px 15px;
-    transition: background 0.3s, color 0.3s;
-}
-nav a:hover {
-    background: #444;
-    border-radius: 5px;
-}
-main {
-    width: 80%;
-    margin: 20px auto;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-h1 {
-    color: #333;
-    margin-bottom: 10px;
-}
-p {
-    margin: 15px 0;
-}
-ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #333;
-    color: #f8f9fa;
-}
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-    }
-    main {
-        width: 90%;
-    }
-    nav a {
-        display: block;
-        width: 100%;
-        text-align: center;
-        margin: 5px 0;
-    }
-}
+      </html>
+    
