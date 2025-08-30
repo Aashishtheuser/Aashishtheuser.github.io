@@ -1,197 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aashish Karki - AI-Skilled SEO & Digital Marketing Expert</title>
-    <meta name="description" content="Portfolio of Aashish Karki, specializing in AI-driven SEO, digital marketing, and boosting brand visibility with proven results.">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #212121; color: #e0e0e0; }
-        .bg-primary { background-color: #3498db; }
-        .text-highlight { color: #10B981; }
-        .modal { display: none; position: fixed; z-index: 50; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.7); }
-        .modal-content { background-color: #333; margin: 10% auto; padding: 20px; border: 1px solid #555; width: 90%; max-width: 900px; border-radius: 12px; color: #e0e0e0; }
-        .close { color: #bbb; float: right; font-size: 28px; font-weight: bold; }
-        .close:hover, .close:focus { color: #fff; cursor: pointer; }
-        @keyframes pumpUp { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        .pump-animation { animation: pumpUp 1s ease-in-out; }
-
-        /* Dark Water Flow Animation */
-        .water-bg { position: relative; overflow: hidden; }
-        .water-bg::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(120deg, #212121, #3498db, #212121); background-size: 400% 400%; animation: waterFlow 15s ease infinite; z-index: -1; opacity: 0.3; }
-        @keyframes waterFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-
-        /* Ensure responsiveness */
-        @media (max-width: 768px) { .grid-cols-2 { grid-template-columns: 1fr; } }
-    </style>
-    <!-- SEO Optimizations -->
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://yourgithubusername.github.io/portfolio/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO & AI Marketing Expert Portfolio</title>
+  <meta name="description" content="Portfolio showcasing SEO, digital marketing, and AI-driven strategies with real-world results.">
+  
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- AOS Animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #111827; color: #e5e7eb; scroll-behavior: smooth; }
+    .bg-accent { background: linear-gradient(135deg, #3b82f6, #10b981); }
+    .text-accent { color: #10b981; }
+    .modal { display:none; position:fixed; z-index:50; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); overflow:auto; }
+    .modal-content { background:#1f2937; margin:5% auto; padding:2rem; border-radius:12px; max-width:900px; }
+    .close { color:#9ca3af; font-size:28px; font-weight:bold; float:right; cursor:pointer; }
+    .close:hover { color:#fff; }
+  </style>
 </head>
-<body class="water-bg">
-    <!-- Header/Navigation -->
-    <header class="bg-primary text-white py-4 sticky top-0 z-40">
-        <nav class="container mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Aashish Karki</h1>
-            <ul class="flex space-x-6">
-                <li><a href="#home" class="hover:underline">Home</a></li>
-                <li><a href="#about" class="hover:underline">About Me</a></li>
-                <li><a href="#ai-expertise" class="hover:underline">AI Expertise</a></li>
-                <li><a href="#projects" class="hover:underline">Projects</a></li>
-                <li><a href="#contact" class="hover:underline">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="relative">
 
-    <!-- Home Section -->
-    <section id="home" class="py-20" data-aos="fade-up">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-4 text-white">Boosting Brand Visibility with AI-Driven SEO</h2>
-            <p class="text-xl mb-6">Expert in modern digital marketing, highlighting results through AI innovations.</p>
-            <a href="#projects" class="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600">View Projects</a>
-        </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about" class="py-20 bg-gray-800" data-aos="fade-up" data-aos-delay="100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8 text-white">About Me</h2>
-            <p class="text-lg mb-4">As an AI-skilled SEO and digital marketing expert, I focus on leveraging AI for visibility, marketing, and brand growth.</p>
-            <p class="text-lg">With extensive experience at Kraftshala, I've trained over 800 students and driven real-world results using tools like Ahrefs, SEMrush, Moz, and Google Ads.</p>
-        </div>
-    </section>
-
-    <!-- AI Tools and Expertise Section -->
-    <section id="ai-expertise" class="py-20" data-aos="fade-up" data-aos-delay="200">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8 text-white">AI Tools & Expertise</h2>
-            <p class="text-lg mb-4 text-center">Harnessing AI for cutting-edge marketing: Predictive analytics, automated content optimization, and personalized strategies that boost engagement and conversions.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-800 rounded-xl shadow-md p-6">
-                    <h3 class="text-xl font-bold mb-2 text-highlight">AI-Driven Visibility</h3>
-                    <p>Using AI to analyze trends and optimize for search engines, resulting in higher rankings and traffic.</p>
-                </div>
-                <div class="bg-gray-800 rounded-xl shadow-md p-6">
-                    <h3 class="text-xl font-bold mb-2 text-highlight">Benefits for Businesses</h3>
-                    <p>AI enhances targeting, reduces costs, and scales efforts for sustainable growth.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-800" data-aos="fade-up" data-aos-delay="300">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8 text-white">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Project 1: Paranoma Rooftop Cafe -->
-                <div class="bg-gray-900 rounded-xl shadow-md p-6" data-aos="zoom-in">
-                    <svg width="100" height="100" viewBox="0 0 100 100" class="mb-4 mx-auto"> <!-- Stylized Logo: 'P' with rooftop/coffee elements -->
-                        <rect x="10" y="40" width="80" height="50" fill="#3498db" rx="5"/> <!-- Rooftop base -->
-                        <path d="M10 40 L50 10 L90 40" fill="#212121"/> <!-- Roof -->
-                        <circle cx="30" cy="65" r="10" fill="#10B981"/> <!-- Coffee cup element -->
-                        <circle cx="50" cy="65" r="10" fill="#10B981"/>
-                        <circle cx="70" cy="65" r="10" fill="#10B981"/>
-                        <text x="45" y="85" font-size="40" fill="white" font-weight="bold">P</text>
-                    </svg>
-                    <h3 class="text-xl font-bold mb-2 text-white">Paranoma Rooftop Cafe Kalanki</h3>
-                    <p class="text-gray-400 mb-4">SEO optimizations led to massive growth in traffic and orders.</p>
-                    <button onclick="openModal('modal1')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Details</button>
-                </div>
-                <!-- Project 2: Luina Beauty Product -->
-                <div class="bg-gray-900 rounded-xl shadow-md p-6" data-aos="zoom-in" data-aos-delay="100">
-                    <svg width="100" height="100" viewBox="0 0 100 100" class="mb-4 mx-auto"> <!-- Simple placeholder logo for beauty -->
-                        <circle cx="50" cy="50" r="40" fill="#3498db"/>
-                        <text x="40" y="60" font-size="40" fill="white" font-weight="bold">L</text>
-                    </svg>
-                    <h3 class="text-xl font-bold mb-2 text-white">Luina Beauty Product</h3>
-                    <p class="text-gray-400 mb-4">Lead generation and sales boosted through AI-SEO strategies.</p>
-                    <button onclick="openModal('modal2')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Details</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20" data-aos="fade-up" data-aos-delay="400">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-8 text-white">Contact</h2>
-            <div class="flex justify-center space-x-4">
-                <a href="https://wa.me/1234567890" class="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600">WhatsApp</a> <!-- Replace with actual number -->
-                <a href="mailto:your.email@example.com" class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">Email</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modals for Project Reports with Charts -->
-    <div id="modal1" class="modal">
-        <div class="modal-content" data-aos="fade-in">
-            <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <h2 class="text-2xl font-bold mb-4">Paranoma Rooftop Cafe Kalanki SEO Report</h2>
-            <p class="mb-4">Tools used: Google Ads, Ahrefs, SEMrush, Moz.</p>
-            <p class="mb-4 text-highlight pump-animation">69% increase in customer ratings.</p>
-            <canvas id="chart1" width="400" height="200"></canvas>
-            <p class="mt-4 text-highlight pump-animation">Significant increase in online orders.</p>
-            <canvas id="chartOrders1" width="400" height="200"></canvas>
-            <ul class="list-disc pl-5 mt-4">
-                <li>Optimized with AI for keywords and backlinks.</li>
-                <li>Improved site speed and mobile experience.</li>
-            </ul>
-        </div>
+  <!-- Header -->
+  <header class="fixed w-full top-0 z-40 bg-gray-900/80 backdrop-blur border-b border-gray-800">
+    <div class="container mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-xl font-bold text-white tracking-wide">Portfolio</h1>
+      <nav>
+        <ul class="flex space-x-6 text-gray-300 font-medium">
+          <li><a href="#home" class="hover:text-accent">Home</a></li>
+          <li><a href="#about" class="hover:text-accent">About</a></li>
+          <li><a href="#expertise" class="hover:text-accent">Expertise</a></li>
+          <li><a href="#projects" class="hover:text-accent">Projects</a></li>
+          <li><a href="#contact" class="hover:text-accent">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <div id="modal2" class="modal">
-        <div class="modal-content" data-aos="fade-in">
-            <span class="close" onclick="closeModal('modal2')">&times;</span>
-            <h2 class="text-2xl font-bold mb-4">Luina Beauty Product Report</h2>
-            <p class="mb-4">Tools used: Google Ads, Ahrefs, SEMrush, Moz.</p>
-            <p class="mb-4 text-highlight pump-animation">500% sales boost.</p>
-            <canvas id="chart2" width="400" height="200"></canvas>
-            <p class="mt-4 text-highlight pump-animation">High lead generation increase.</p>
-            <canvas id="chartLeads2" width="400" height="200"></canvas>
-            <ul class="list-disc pl-5 mt-4">
-                <li>AI-targeted campaigns and e-commerce SEO.</li>
-                <li>Social integrations for better reach.</li>
-            </ul>
-        </div>
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex items-center justify-center text-center px-6">
+    <div data-aos="fade-up">
+      <h2 class="text-5xl md:text-6xl font-extrabold mb-6 text-white">Boosting Visibility with <span class="text-accent">AI‑Driven SEO</span></h2>
+      <p class="text-lg md:text-xl text-gray-400 mb-8">Blending Artificial Intelligence and Digital Marketing strategy to drive growth, engagement, and leads.</p>
+      <a href="#projects" class="bg-accent px-8 py-3 rounded-lg text-white font-semibold shadow hover:opacity-90">View Projects</a>
     </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="bg-primary text-white py-4 text-center">
-        <p>&copy; 2025 Aashish Karki. All rights reserved.</p>
-    </footer>
+  <!-- About -->
+  <section id="about" class="py-20 bg-gray-900/60" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-white mb-6">About Me</h2>
+      <p class="text-lg leading-relaxed text-gray-300">I specialize in AI-powered SEO & digital marketing, helping businesses increase visibility and optimize user experiences. With proven training & consulting experience, I've guided campaigns delivering measurable growth across industries.</p>
+    </div>
+  </section>
 
-    <script>
-        AOS.init();
+  <!-- Expertise -->
+  <section id="expertise" class="py-20" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-white mb-10">Core Skills & Expertise</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+          <h3 class="text-xl font-semibold text-accent mb-3">AI‑Driven SEO</h3>
+          <p>Keyword trends, predictive analytics, and automated campaign optimizations for higher traffic and conversions.</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+          <h3 class="text-xl font-semibold text-accent mb-3">Digital Growth Strategy</h3>
+          <p>Multi-channel marketing powered by paid ads, social media, and customer behavior insights.</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+          <h3 class="text-xl font-semibold text-accent mb-3">Local SEO</h3>
+          <p>Optimized business profiles, NAP citations, review growth, and local visibility tactics driving footfall.</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6 shadow-lg">
+          <h3 class="text-xl font-semibold text-accent mb-3">Technical Optimization</h3>
+          <p>Core Web Vitals focus: site speed, structured data, responsive design, and clean indexing strategies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = "block";
-            setTimeout(() => {
-                document.querySelectorAll('.pump-animation').forEach(el => el.classList.add('pump-animation'));
-                if (modalId === 'modal1') {
-                    new Chart(document.getElementById('chart1'), { type: 'bar', data: { labels: ['Before', 'After'], datasets: [{ label: 'Customer Ratings', data: [3.0, 5.07], backgroundColor: ['#3498db', '#10B981'] }] }, options: { scales: { y: { beginAtZero: true } } } });
-                    new Chart(document.getElementById('chartOrders1'), { type: 'line', data: { labels: ['Month 1', 'Month 2', 'Month 3'], datasets: [{ label: 'Online Orders', data: [100, 200, 500], borderColor: '#10B981' }] }, options: { scales: { y: { beginAtZero: true } } } });
-                } else if (modalId === 'modal2') {
-                    new Chart(document.getElementById('chart2'), { type: 'bar', data: { labels: ['Before', 'After'], datasets: [{ label: 'Sales', data: [1000, 6000], backgroundColor: ['#3498db', '#10B981'] }] }, options: { scales: { y: { beginAtZero: true } } } });
-                    new Chart(document.getElementById('chartLeads2'), { type: 'line', data: { labels: ['Month 1', 'Month 2', 'Month 3'], datasets: [{ label: 'Leads', data: [50, 150, 400], borderColor: '#10B981' }] }, options: { scales: { y: { beginAtZero: true } } } });
-                }
-            }, 100);
-        }
+  <!-- Projects -->
+  <section id="projects" class="py-20 bg-gray-900/60" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-white mb-12">Case Studies</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gray-800 rounded-lg p-6">
+          <h3 class="text-xl font-semibold mb-2 text-white">Panorama Rooftop Cafe</h3>
+          <p class="text-gray-400 mb-4">Improved GBP presence, boosted reviews, and doubled online orders with optimized local SEO.</p>
+          <button onclick="openModal('modal1')" class="bg-accent px-4 py-2 rounded text-white hover:opacity-90">View Report</button>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-6">
+          <h3 class="text-xl font-semibold mb-2 text-white">Luina Beauty Product</h3>
+          <p class="text-gray-400 mb-4">Achieved a 500% boost in sales with AI‑integrated e‑commerce SEO and social strategies.</p>
+          <button onclick="openModal('modal2')" class="bg-accent px-4 py-2 rounded text-white hover:opacity-90">View Report</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
-        }
+  <!-- Contact -->
+  <section id="contact" class="py-20" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold text-white mb-6">Let’s Connect</h2>
+      <p class="text-gray-400 mb-8">Interested in working together or discussing projects? Feel free to reach out.</p>
+      <div class="flex flex-col md:flex-row justify-center gap-4">
+        <a href="mailto:your.email@example.com" class="bg-blue-600 px-6 py-3 rounded text-white font-semibold hover:bg-blue-700">Email</a>
+        <a href="https://wa.me/1234567890" class="bg-green-600 px-6 py-3 rounded text-white font-semibold hover:bg-green-700">WhatsApp</a>
+      </div>
+    </div>
+  </section>
 
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-            }
-        }
-    </script>
+  <!-- Footer -->
+  <footer class="bg-gray-900 border-t border-gray-800 py-6 text-center text-gray-500 text-sm">
+    © 2025 Portfolio. All Rights Reserved.
+  </footer>
+
+  <!-- Modals -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <h2 class="text-2xl font-bold mb-4">Panorama Rooftop Cafe Report</h2>
+      <canvas id="chart1"></canvas>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal2')">&times;</span>
+      <h2 class="text-2xl font-bold mb-4">Luina Beauty Product Report</h2>
+      <canvas id="chart2"></canvas>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    AOS.init();
+
+    function openModal(id){
+      document.getElementById(id).style.display="block";
+      if(id==="modal1"){
+        new Chart(document.getElementById('chart1'), {
+          type:'bar',
+          data:{labels:['Before','After'],
+          datasets:[{label:'Customer Ratings', data:[3.0,5.0], backgroundColor:['#3b82f6','#10b981']}]}
+        });
+      }
+      if(id==="modal2"){
+        new Chart(document.getElementById('chart2'), {
+          type:'line',
+          data:{labels:['Month1','Month2','Month3'],
+          datasets:[{label:'Sales Growth', data:[1000,3000,6000], borderColor:'#10b981'}]}
+        });
+      }
+    }
+    function closeModal(id){document.getElementById(id).style.display="none";}
+    window.onclick=function(e){if(e.target.classList.contains("modal"))e.target.style.display="none";}
+  </script>
 </body>
-  </html>
+      </html>
